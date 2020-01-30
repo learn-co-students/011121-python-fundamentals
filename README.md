@@ -1,10 +1,9 @@
+## Python Fundamentals
 
-## Python Fundamentals [Suggested Time: 20 min]
-
-In this section, we will work with various Python data types and try to accomplish certain tasks using some Python fundamentals. Below, we've defined a dictionary with soccer player names as keys for nested dictionaries containing information about each players age, nationality, and a list of teams they have played for.   
+In this checkpoint, we will work with various Python data types and try to accomplish certain tasks using some Python fundamentals. Below, we've defined a dictionary with soccer player names as keys for nested dictionaries containing information about each players age, nationality, and a list of teams they have played for.   
 
 
-```
+```python
 players = {
 	'L. Messi': {
 		'age': 31,
@@ -37,12 +36,12 @@ players = {
 **1) Create a `list` of all the keys in the `players` dictionary. Use python's documentation on dictionaries for help if needed. Store the list of player names in a variable called `player_names` to use in the next question.**
 
 
-```
+```python
 player_names = list(players.keys())
 ```
 
 
-```
+```python
 print(player_names)
 ```
 
@@ -52,12 +51,12 @@ print(player_names)
 **2) Great! Now that we have each players name, let's use that information to create a `list` of `tuples` containing each player's name along with their nationality. Store the list in a variable called `player_nationalities`**
 
 
-```
+```python
 player_nationalities = [(name, players[name]['nationality']) for name in player_names]
 ```
 
 
-```
+```python
 print(player_nationalities)
 ```
 
@@ -73,7 +72,7 @@ Your function should take two arguments:
 **Be sure that your function has a `return` statement.**
 
 
-```
+```python
 def get_players_on_team(dict_,team_name):
     player_list = []
     for player in dict_:
@@ -83,7 +82,7 @@ def get_players_on_team(dict_,team_name):
 ```
 
 
-```
+```python
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
 ```
