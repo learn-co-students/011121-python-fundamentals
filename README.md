@@ -33,35 +33,29 @@ players = {
 }
 ```
 
-**1) Create a `list` of all the keys in the `players` dictionary. Use python's documentation on dictionaries for help if needed. Store the list of player names in a variable called `player_names` to use in the next question.**
+#### 1) Create a `list` of all the keys in the `players` dictionary. 
+- Use python's documentation on dictionaries for help if needed. 
+- Store the list of player names in a variable called `player_names` to use in the next question.
+- Print out `player_names` to make sure your code returns what you think it does!
 
 
 ```python
 player_names = list(players.keys())
-```
 
-
-```python
 print(player_names)
 ```
 
-    ['L. Messi', 'Cristiano Ronaldo', 'Neymar Jr', 'De Gea', 'K. De Bruyne']
+#### 2) Great! Now that we have each players name, let's use that information to create a `list` of `tuples` containing each player's name along with their nationality. 
 
-
-**2) Great! Now that we have each players name, let's use that information to create a `list` of `tuples` containing each player's name along with their nationality. Store the list in a variable called `player_nationalities`**
+- Ex: [('L. Messi', 'Argentina'), ('Christiano Ronaldo', 'Portugal'), ...]
+- Store the list in a variable called `player_nationalities`
 
 
 ```python
 player_nationalities = [(name, players[name]['nationality']) for name in player_names]
-```
 
-
-```python
 print(player_nationalities)
 ```
-
-    [('L. Messi', 'Argentina'), ('Cristiano Ronaldo', 'Portugal'), ('Neymar Jr', 'Brazil'), ('De Gea', 'Spain'), ('K. De Bruyne', 'Belgium')]
-
 
 **3) Now, define a function called `get_players_on_team` that returns a `list` of the names of all the players who have played on a given team.** 
 
@@ -79,10 +73,7 @@ def get_players_on_team(dict_,team_name):
         if team_name in dict_[player]['teams']:
             player_list.append(player)
     return player_list
-```
 
-
-```python
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
 ```
