@@ -4,6 +4,7 @@ In this checkpoint, we will work with various Python data types and try to accom
 
 
 ```python
+#Run this code without any changes
 players = {
     'L. Messi': {
 		'age': 31,
@@ -65,63 +66,50 @@ players = {
 }
 ```
 
-**1) Create a `list` of all the keys in the `players` dictionary. Use python's documentation on dictionaries for help if needed. Store the list of player names in a variable called `player_names` to use in the next question.**
+#### 1) Create a `list` of all the keys in the `players` dictionary. 
+- Use python's documentation on dictionaries for help if needed. 
+- Store the list of player names in a variable called `player_names` to use in the next question.
+- Print out `player_names` to make sure your code returns what you think it does!
 
 
 ```python
-# Get the list of all player names from the dictionary
+# Copy this starter code below to use in your answer
+
 player_names = None
+
+print(player_names)
 ```
 
 
 ```python
 # __SOLUTION__ 
 player_names = list(players.keys())
-```
 
-
-```python
 print(player_names)
 ```
 
+#### 2) Great! Now that we have each players name, let's use that information to create a `list` of `tuples` containing each player's name along with their nationality. 
 
-```python
-# __SOLUTION__ 
-print(player_names)
-```
-
-    ['L. Messi', 'Cristiano Ronaldo', 'Neymar Jr', 'De Gea', 'K. De Bruyne']
-
-
-**2) Great! Now that we have each players name, let's use that information to create a `list` of `tuples` containing each player's name along with their nationality. Store the list in a variable called `player_nationalities`**
+- Ex: [('L. Messi', 'Argentina'), ('Christiano Ronaldo', 'Portugal'), ...]
+- Store the list in a variable called `player_nationalities`
 
 
 ```python
-# Generate list of tuples such that the first element in the tuple is 
-# a players name and the second is their nationality 
-# Ex: [('L. Messi', 'Argentina'), ('Christiano Ronaldo', 'Portugal'), ...]
+# Copy this starter code below to use in your answer
+
 player_nationalities = None
+
+
+print(player_nationalities)
 ```
 
 
 ```python
 # __SOLUTION__ 
 player_nationalities = [(name, players[name]['nationality']) for name in player_names]
-```
 
-
-```python
 print(player_nationalities)
 ```
-
-
-```python
-# __SOLUTION__ 
-print(player_nationalities)
-```
-
-    [('L. Messi', 'Argentina'), ('Cristiano Ronaldo', 'Portugal'), ('Neymar Jr', 'Brazil'), ('De Gea', 'Spain'), ('K. De Bruyne', 'Belgium')]
-
 
 **3) Now, define a function called `get_players_on_team` that returns a `list` of the names of all the players who have played on a given team.** 
 
@@ -133,13 +121,11 @@ Your function should take two arguments:
 
 
 ```python
-# Define your get_players_on_team function here.
-```
+# Copy the code below and use to help check your answer
 
-
-```python
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
+   
 ```
 
 
@@ -151,11 +137,7 @@ def get_players_on_team(dict_,team_name):
         if team_name in dict_[player]['teams']:
             player_list.append(player)
     return player_list
-```
 
-
-```python
-# __SOLUTION__ 
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
 ```
