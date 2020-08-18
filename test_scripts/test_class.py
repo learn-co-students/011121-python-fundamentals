@@ -129,7 +129,7 @@ class Test():
     
     def test_dir(self):
         '''
-        check if test_obj dir is there; if not, create it
+        check if test_obj/ is there; if not, create it
         '''
 
         if not os.path.isdir(self.directory):
@@ -139,7 +139,7 @@ class Test():
 
     def get_file_name(self, glob_listing):
         '''
-        gets str of one file name in test_obj dir w/o .pkl extension
+        gets str of one file name in test_obj/ w/o .pkl extension
 
         Parameters:
             glob_listing: single returned object from glob
@@ -157,7 +157,7 @@ class Test():
 
     def save_ind(self, object, object_name):
         '''
-        saves object to test_obj dir w/ object_name.pkl
+        saves object to test_obj/ w/ object_name.pkl
 
         Parameters:
             object: object to pkl
@@ -171,7 +171,7 @@ class Test():
 
     def save(self, object, object_name):
         '''
-        parse test_obj dir to see if object_name.pkl prev saved
+        parse test_obj/ to see if object_name.pkl prev saved
         if so, delete it
 
         save object under f'test_obj/{object_name}.pkl'
@@ -214,13 +214,6 @@ class Test():
 
         return obj
 
-    def output(self, result=True):
-
-        if result:
-            display(Markdown('✅ **Hey, you did it.  Good job.**'))
-        else:
-            display(Markdown('❌ **Try Again**'))
-
     def run_test(self, obj, name, statement=None):
         '''
         runs assert against obj and f"self.dir/{name+'.pkl'}"
@@ -234,7 +227,6 @@ class Test():
 
         test_obj = self.load_ind(name)
 
-#         try:
         if kind in self.obj_tests_dict.keys():
             self.obj_tests_dict[kind](
                 obj, 
@@ -245,9 +237,3 @@ class Test():
         else:
             assert obj == test_obj, statement
 
-#             self.output()
-
-#         except AssertionError:
-#             raise AssertionError(statement)
-
-#             self.output(result=False)
