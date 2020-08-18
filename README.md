@@ -4,65 +4,33 @@ In this checkpoint, we will work with various Python data types and try to accom
 
 
 ```python
-#Run this code without any changes
+#Run the code below with no changes
 players = {
     'L. Messi': {
-		'age': 31,
-		'nationality': 'Argentina',
-		'teams': ['Barcelona']
-	},
-	'Cristiano Ronaldo': {
-		'age': 33,
-		'nationality': 'Portugal',
-		'teams': ['Juventus', 'Real Madrid', 'Manchester United']
-	},
-	'Neymar Jr': {
-		'age': 26,
-		'nationality': 'Brazil',
-		'teams': ['Santos', 'Barcelona', 'Paris Saint-German']
-	},
-	'De Gea': {
-		'age': 27,
-		'nationality': 'Spain',
-		'teams': ['Atletico Madrid', 'Manchester United']
-	},
-	'K. De Bruyne': {
-		'age': 27,
-		'nationality': 'Belgium',
-		'teams': ['Chelsea', 'Manchester City']
-	}
-}
-```
-
-
-```python
-# __SOLUTION__ 
-players = {
-	'L. Messi': {
-		'age': 31,
-		'nationality': 'Argentina',
-		'teams': ['Barcelona']
-	},
-	'Cristiano Ronaldo': {
-		'age': 33,
-		'nationality': 'Portugal',
-		'teams': ['Juventus', 'Real Madrid', 'Manchester United']
-	},
-	'Neymar Jr': {
-		'age': 26,
-		'nationality': 'Brazil',
-		'teams': ['Santos', 'Barcelona', 'Paris Saint-German']
-	},
-	'De Gea': {
-		'age': 27,
-		'nationality': 'Spain',
-		'teams': ['Atletico Madrid', 'Manchester United']
-	},
-	'K. De Bruyne': {
-		'age': 27,
-		'nationality': 'Belgium',
-		'teams': ['Chelsea', 'Manchester City']
-	}
+        'age': 31,
+        'nationality': 'Argentina',
+        'teams': ['Barcelona']
+    },
+    'Cristiano Ronaldo': {
+        'age': 33,
+        'nationality': 'Portugal',
+        'teams': ['Juventus', 'Real Madrid', 'Manchester United']
+    },
+    'Neymar Jr': {
+        'age': 26,
+        'nationality': 'Brazil',
+        'teams': ['Santos', 'Barcelona', 'Paris Saint-German']
+    },
+    'De Gea': {
+        'age': 27,
+        'nationality': 'Spain',
+        'teams': ['Atletico Madrid', 'Manchester United']
+    },
+    'K. De Bruyne': {
+        'age': 27,
+        'nationality': 'Belgium',
+        'teams': ['Chelsea', 'Manchester City']
+    }
 }
 ```
 
@@ -82,10 +50,29 @@ print(player_names)
 
 
 ```python
-# __SOLUTION__ 
+### BEGIN SOLUTION
+
 player_names = list(players.keys())
 
 print(player_names)
+
+test.save()
+
+
+
+### END SOLUTION
+```
+
+    ['L. Messi', 'Cristiano Ronaldo', 'Neymar Jr', 'De Gea', 'K. De Bruyne']
+
+
+
+```python
+### BEGIN HIDDEN TESTS
+
+test.run_test()
+
+### END HIDDEN TESTS
 ```
 
 #### 2) Great! Now that we have each players name, let's use that information to create a `list` of `tuples` containing each player's name along with their nationality. 
@@ -105,10 +92,29 @@ print(player_nationalities)
 
 
 ```python
-# __SOLUTION__ 
+### BEGIN SOLUTION
+
 player_nationalities = [(name, players[name]['nationality']) for name in player_names]
 
 print(player_nationalities)
+
+test.save()
+
+
+
+### END SOLUTION
+```
+
+    [('L. Messi', 'Argentina'), ('Cristiano Ronaldo', 'Portugal'), ('Neymar Jr', 'Brazil'), ('De Gea', 'Spain'), ('K. De Bruyne', 'Belgium')]
+
+
+
+```python
+### BEGIN HIDDEN TESTS
+
+test.run_test()
+
+### END HIDDEN TESTS
 ```
 
 **3) Now, define a function called `get_players_on_team` that returns a `list` of the names of all the players who have played on a given team.** 
@@ -130,7 +136,8 @@ print(players_on_manchester_united)
 
 
 ```python
-# __SOLUTION__ 
+### BEGIN SOLUTION
+
 def get_players_on_team(dict_,team_name):
     player_list = []
     for player in dict_:
@@ -140,7 +147,22 @@ def get_players_on_team(dict_,team_name):
 
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
+
+test.save()
+
+
+
+### END SOLUTION
 ```
 
     ['Cristiano Ronaldo', 'De Gea']
 
+
+
+```python
+### BEGIN HIDDEN TESTS
+
+test.run_test()
+
+### END HIDDEN TESTS
+```
