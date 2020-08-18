@@ -129,8 +129,6 @@ print(player_nationalities)
 test.save(player_nationalities, 'player_nationalities')
 test.save(len(player_nationalities), 'len_player_nationalities')
 
-
-
 ### END SOLUTION
 ```
 
