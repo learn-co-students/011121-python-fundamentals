@@ -4,6 +4,14 @@ In this checkpoint, we will work with various Python data types and try to accom
 
 
 ```python
+#Ignore this code used to generate tests
+
+from test_scripts.test_class import Test
+test = Test()
+```
+
+
+```python
 #Run the code below with no changes
 players = {
     'L. Messi': {
@@ -42,6 +50,7 @@ players = {
 
 ```python
 # Copy this starter code below to use in your answer
+# Look at what is printed by the print statement to check your work!
 
 player_names = None
 
@@ -54,23 +63,38 @@ print(player_names)
 
 player_names = list(players.keys())
 
+player_names.sort()
+
 print(player_names)
 
-test.save()
+test.save(player_names, 'player_names')
+test.save(len(player_names), 'len_player_names')
 
 
 
 ### END SOLUTION
 ```
 
-    ['L. Messi', 'Cristiano Ronaldo', 'Neymar Jr', 'De Gea', 'K. De Bruyne']
+    ['Cristiano Ronaldo', 'De Gea', 'K. De Bruyne', 'L. Messi', 'Neymar Jr']
 
 
 
 ```python
 ### BEGIN HIDDEN TESTS
 
-test.run_test()
+player_names.sort()
+
+test.run_test(
+    len(player_names), 
+    'len_player_names', 
+    "looks like you had the wrong number of names?"
+)
+
+test.run_test(
+    player_names, 
+    'player_names', 
+    "looks like you had the wrong 5 names?"
+)
 
 ### END HIDDEN TESTS
 ```
@@ -96,23 +120,44 @@ print(player_nationalities)
 
 player_nationalities = [(name, players[name]['nationality']) for name in player_names]
 
+#sort by first tuple (name)
+player_nationalities.sort(key = lambda x: x[0])
+
 print(player_nationalities)
 
-test.save()
+
+test.save(player_nationalities, 'player_nationalities')
+test.save(len(player_nationalities), 'len_player_nationalities')
 
 
 
 ### END SOLUTION
 ```
 
-    [('L. Messi', 'Argentina'), ('Cristiano Ronaldo', 'Portugal'), ('Neymar Jr', 'Brazil'), ('De Gea', 'Spain'), ('K. De Bruyne', 'Belgium')]
+    [('Cristiano Ronaldo', 'Portugal'), ('De Gea', 'Spain'), ('K. De Bruyne', 'Belgium'), ('L. Messi', 'Argentina'), ('Neymar Jr', 'Brazil')]
 
 
 
 ```python
 ### BEGIN HIDDEN TESTS
 
-test.run_test()
+#sort by first tuple (name)
+try:
+    player_nationalities.sort(key = lambda x: x[0])
+
+except error:
+    raise AssertionError ("looks like you didn't have a list of tuples?")
+
+
+test.run_test(len(player_nationalities), 
+              'len_player_nationalities', 
+              "looks like you had the wrong number of players?"
+             )
+
+test.run_test(player_nationalities, 
+              'player_nationalities', 
+              "looks like you had the wrong 5 tuples?"
+             )
 
 ### END HIDDEN TESTS
 ```
@@ -127,7 +172,8 @@ Your function should take two arguments:
 
 
 ```python
-# Copy the code below and use to help check your answer
+# Copy and run the code below after your answer 
+# Make sure it prints what you think you coded!
 
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
@@ -148,7 +194,10 @@ def get_players_on_team(dict_,team_name):
 players_on_manchester_united = get_players_on_team(players,'Manchester United')
 print(players_on_manchester_united)
 
-test.save()
+players_on_manchester_united.sort()
+
+test.save(players_on_manchester_united, "man_u_players")
+test.save(len(players_on_manchester_united), "len_man_u")
 
 
 
@@ -162,7 +211,27 @@ test.save()
 ```python
 ### BEGIN HIDDEN TESTS
 
-test.run_test()
+try:
+    players_on_manchester_united.sort()
+    
+except error:
+    raise AssertionError ("looks like you didn't have the right type of output for your function?")
+
+
+test.run_test(len(players_on_manchester_united), 
+              "len_man_u",
+              "looks like you had the wrong number of players?"
+             )
+    
+test.run_test(players_on_manchester_united, 
+              "man_u_players",
+              "looks like you had the wrong players?"
+             )
 
 ### END HIDDEN TESTS
+```
+
+
+```python
+
 ```

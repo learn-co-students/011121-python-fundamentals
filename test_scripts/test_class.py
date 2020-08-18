@@ -7,7 +7,7 @@ import pickle as pkl
 import numpy as np
 import pandas as pd
 
-import sklearn
+import sklearn.neighbors
 
 from IPython.display import Markdown, display
 
@@ -221,7 +221,7 @@ class Test():
         else:
             display(Markdown('❌ **Try Again**'))
 
-    def run_test(self, obj, name):
+    def run_test(self, obj, name, statement=None):
         '''
         runs assert against obj and f"self.dir/{name+'.pkl'}"
 
@@ -234,16 +234,20 @@ class Test():
 
         test_obj = self.load_ind(name)
 
-        try:
-            if kind in self.obj_tests_dict.keys():
-                self.obj_tests_dict[kind](
-                    obj, test_obj, **self.obj_tests_dict_kwargs[kind])
+#         try:
+        if kind in self.obj_tests_dict.keys():
+            self.obj_tests_dict[kind](
+                obj, 
+                test_obj, 
+                **self.obj_tests_dict_kwargs[kind]
+            )
 
-            else:
-                assert obj == test_obj
+        else:
+            assert obj == test_obj, statement
 
-            self.output()
+#             self.output()
 
-        except AssertionError:
+#         except AssertionError:
+#             raise AssertionError(statement)
 
-            self.output(result=False)
+#             self.output(result=False)
